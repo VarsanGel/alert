@@ -1,0 +1,34 @@
+{
+"update_url":"http://clients2.google.com/service/update2/crx",
+  "manifest_version": 2,
+  "name" : "Ogame Attack Notifier",
+  "version" : "1.0.1",
+  "description" : "Shows a desktop notification when you are under attack in OGame.",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts" : [
+    {
+      "matches" : [
+        "*://*.ogame.gameforge.com/*",
+      ],
+      "js" : ["contentscript.js"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "notifications"
+  ],
+  "icons" : {
+    "19" : "ogame-19.png",
+    "48" : "ogame-48.png",
+    "128" : "ogame-128.png"
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    "ogame-48.png",
+    "jquery.min.js"
+  ]
+}

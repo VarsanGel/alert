@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ogame Universe Selector</title>
+    <style type="text/css">
+        body {background: #000; color: #619FC8;}
+        h1 {font-size: 14px; text-shadow: 1px 2px black;}
+        #header {font-size: 25px; text-shadow: 1px 2px black; width:580px; margin: 0 auto; background: #1f2b39; margin-bottom: 5px; padding: 10px;}
+        #header img {margin-top: -5px; }
+
+        #content {background: #1f2b39; width:600px; margin: 0 auto;}
+            #left {width: 280px; border-right: 5px solid #000;  float: left; padding: 0 10px; padding-bottom: 15px;}
+            #right {width: 275px; float: left; padding: 0 10px; font-size: 15px; text-align: justify;}
+        .clear {clear: both;}
+        label { background: url(images/label.gif) no-repeat scroll 0 3px transparent; display: block; font-weight: normal; height: 15px; line-height: 15px; margin: 10px 0 3px 0; padding: 0 0 0 11px; }
+        a {color: #619FC8;}
+        input[type=text],input[type=password] {width:240px; background: #8D9AA7; border: 2px solid #8399AF; color: #30576F;}
+        select {width: 244px; background: #8D9AA7; border: 2px solid #8399AF; color: #30576F;}
+        input[type=submit] {background-image: url(images/button-save.png); border-radius: 3px; border: 1px solid #019CF2; padding: 7px 15px 6px 15px; color: white; font-size: 12px; font-weight: bold; height: 30px; overflow: hidden; text-shadow: -1px -1px 0px #119ECD;}
+        input[type=submit]:hover {background-image: url(images/button-save-hover.png);}
+        .note {font-size: 12px;}
+    </style>
+    <script src="options.js"></script>
+</head>
+<body>
+    <div id="header">
+        <img src="ogame-48.png" width="30" alt="" style="vertical-align: middle;" />
+        OGame Attack Notifier
+    </div>
+
+    <div id="content">
+        <div id="left">
+            <h1>Options</h1>
+            <form name="" method="post" id="userdata">
+                <label for="interval">Check interval</label>
+                <select name="interval" id="interval">
+                    <option value="30">30 secconds</option>
+                    <option value="60">1 minute</option>
+                    <option value="120">2 minutes</option>
+                    <option value="300">5 minutes</option>
+                </select><br />
+                <label for="auto_hide">Hide notification after</label>
+                <select name="auto_hide" id="auto_hide">
+                    <option value="15">15 secconds</option>
+                    <option value="60">1 minute</option>
+                    <option value="0">never</option>
+                </select>
+                <label for="sound">Alert sound <a href="#" id="preview_sound" style="float: right; margin-right: 35px;">preview</a></label>
+                <select name="sound" id="sound">
+                    <option value="">disabled</option>
+                    <option value="chime.mp3">Chime</option>
+                    <option value="ding.ogg">Ding</option>
+                    <option value="custom">Custom</option>
+                </select>
+
+                <input type="file" id="audio_src" accept="audio/*" style="display: none; margin-top: 5px;" onchange="handleAudioFile(this.files)" />
+                <label for="loop" style="padding-left: 10px; margin-top: 5px; background-position: 0 5px; padding-bottom: 5px;"><input type="checkbox" name="loop" id="loop" value="1" /> Loop sound</label>
+
+                <label for="alert_on">Alert me on</label>
+                <select name="alert_on" id="alert_on">
+                    <option value="1">Attack missions</option>
+                    <option value="2">Attack missions & Espionage missions</option>
+                </select>
+                <br /><br />
+                <input type="submit" name="submit" value="save"> <span id="success" style="display: none;">Saved</span>
+                </form>
+        </div>
+        <div id="right">
+            <h1>Info</h1>
+            <b>Warning!!</b><br />
+            Ogame must be opened in a tab and you must be logged in for this to work properly.
+            <br /><br />
+            Written by Daniel Onisoru<br />
+            Version 0.4
+            <br />
+            <div class="note" style="width: 150px; margin-top: 47px; float: left;">
+            If you find this useful, you can make donation using Paypal.<br />Any amount will contribute to its continuous development. Thank you!
+            </div>
+            <div style="float: left; padding: 68px 0 0 20px;">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_s-xclick" />
+                    <input type="hidden" name="hosted_button_id" value="6DGZ7LWHB8AYS" />
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>
